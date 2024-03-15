@@ -1,5 +1,4 @@
-# Sebastian Guerrer0
-# 202021249
+# Sebastian Guerrero - 202021249
 
 # Getting Started with Create React App
 
