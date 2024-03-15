@@ -8,10 +8,12 @@ function LogIn(){
 
     const navigate = useNavigate();
 
-    const [formValues, setFormValues] = useState({user:"", password:""})
+    const [formValues, setFormValues] = useState({login:"", password:""})
+
+    const [validationState, setValidationStates] = useState(true);
 
     const handleUserChange = (e) =>{
-        setFormValues({...formValues, user: e.target.value})
+        setFormValues({...formValues, login: e.target.value})
     }
 
     const handlePasswordChange = (e) => {
@@ -19,13 +21,25 @@ function LogIn(){
     }
 
     const clickSubmit = () => {
-        //Poner lo de submit
-        console.log(formValues)
-        navigate('/cars');
+
+        fetch("http://localhost:3001/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(formValues)
+        }).then((data) => {
+            if (data.ok){
+                navigate('/cars');
+            }
+            else{
+                setValidationStates(false);
+            }
+        })        
     }
 
     const clickCancelar = () => {
-        setFormValues({user:"", password: ""})
+        setFormValues({login:"", password: ""})
     }
 
 
@@ -47,7 +61,7 @@ function LogIn(){
                         Nombre de usuario
                     </FormLabel>
 
-                    <Form.Control type="text" placeholder="Nombre de usuario" onChange={handleUserChange} value={formValues.user}/>
+                    <Form.Control type="text" placeholder="Nombre de usuario" onChange={handleUserChange} value={formValues.login} className={validationState ? '' : 'is-invalid'}/>
                 </Form.Group>
 
                 <Form.Group>
@@ -55,7 +69,7 @@ function LogIn(){
                         Contraseña
                     </FormLabel>
 
-                    <Form.Control type="password" placeholder="" onChange={handlePasswordChange} value={formValues.password}/>
+                    <Form.Control type="password" placeholder="" onChange={handlePasswordChange} value={formValues.password} className={validationState ? '' : 'is-invalid'}/>
 
                 </Form.Group>
             </Form>
@@ -70,6 +84,10 @@ function LogIn(){
                         Cancelar
                     </Button>
                 </div>
+            </Row>
+
+            <Row>
+                { !validationState && <Form.Text className="text-mal">Error de autenticación. Revise sus credenciales</Form.Text>}
             </Row>
 
 

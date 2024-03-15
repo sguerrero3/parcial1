@@ -15,7 +15,7 @@ function CarList(){
         fetch(URL).then((data) => data.json()).then((data) => {
             setCarros(data);
         })
-    })
+    }, [])
 
     const handleClick = (car)=> {
 
