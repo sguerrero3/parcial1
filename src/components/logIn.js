@@ -22,7 +22,7 @@ function LogIn(){
 
     const clickSubmit = () => {
 
-        fetch("http://190.25.98.196:3001/login", {
+        fetch("http://localhost:3001/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

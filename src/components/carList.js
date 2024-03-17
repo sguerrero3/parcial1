@@ -11,7 +11,7 @@ function CarList(){
 
     useEffect(() => {
 
-        const URL = "http://190.25.98.196:3001/cars"
+        const URL = "http://localhost:3001/cars"
 
         fetch(URL).then((data) => data.json()).then((data) => {
             setCarros(data);
