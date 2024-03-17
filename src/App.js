@@ -5,14 +5,12 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LogIn />} />
           <Route path="/cars" element={<CarList />} />
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

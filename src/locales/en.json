@@ -1,0 +1,18 @@
+{
+    "LogIn":"Login",
+    "Username":"Username",
+    "Password":"Password",
+    "Go":"Login",
+    "Cancel": "Cancel",
+    "Error":"Authentication Error. Check your credentials",
+    "Brand":" Brand",
+    "Line":"Line",
+    "Model": "Model",
+    "Milage": "Kilometers",
+    "Color": "Color",
+    "Reference":"Reference",
+    "Plata":"Silver",
+    "Rojo":"Red",
+    "Blanco":"White",
+    "Contact":"Contact us"
+}

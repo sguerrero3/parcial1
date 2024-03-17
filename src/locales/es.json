@@ -1,0 +1,18 @@
+{
+    "LogIn":"Inicio de sesión",
+    "Username":"Nombre de usuario",
+    "Password":"Contraseña",
+    "Go":"Ingresar",
+    "Cancel": "Cancelar",
+    "Error":"Error de autenticación. Revise sus credenciales",
+    "Brand":" Marca",
+    "Line":"Linea",
+    "Model": "Modelo",
+    "Milage": "Kilometraje",
+    "Color": "Color",
+    "Reference":"Referencia",
+    "Plata":"Plata",
+    "Rojo":"Rojo",
+    "Blanco":"Blanco",
+    "Contact":"Contacta con nosotros"
+}

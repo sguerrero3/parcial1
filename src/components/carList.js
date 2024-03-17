@@ -2,6 +2,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 import CarDetail from "./carDetail";
+import { FormattedMessage } from "react-intl";
 
 function CarList(){
 
@@ -30,15 +31,15 @@ function CarList(){
 
         <Row>
 
-        <Col>
+        <Col xs={8}>
 
             <table className="table">
-                <thead>
+                <thead className="table-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Linea</th>
-                        <th scope="col">Modelo</th>
+                        <th scope="col" style={{ width: '10%' }} >#</th>
+                        <th scope="col" style={{ width: '20%' }} > <FormattedMessage id="Brand" /></th>
+                        <th scope="col" style={{ width: '20%' }} ><FormattedMessage id="Line" /></th>
+                        <th scope="col"><FormattedMessage id="Model" /></th>
                     </tr>
                 </thead>
 

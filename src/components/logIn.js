@@ -1,8 +1,8 @@
 import { Button, Form, FormLabel } from "react-bootstrap";
 import { useState } from "react";
 import Row from "react-bootstrap/Row";
-
 import { useNavigate } from 'react-router-dom';
+import { FormattedMessage } from "react-intl";
 
 function LogIn(){
 
@@ -40,6 +40,7 @@ function LogIn(){
 
     const clickCancelar = () => {
         setFormValues({login:"", password: ""})
+        setValidationStates(true)
     }
 
 
@@ -48,46 +49,55 @@ function LogIn(){
         <div className="container">
 
             <Row>
-                <h1>
-                    Inicio de sesión
+                <h1 style={{color: "#000000", fontSize:"32px", fontWeight:"bold", fontFamily: 'Inter, sans-serif', textAlign: 'center', padding:"2rem"}}>
+                    <FormattedMessage id="LogIn"/>
                 </h1>
             </Row>
-
             <Row>
+
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+
             <Form>
                 <Form.Group>
 
-                    <FormLabel>
-                        Nombre de usuario
+                    <FormLabel style={{color: "#000000", fontSize:"20px", fontWeight:"bold", fontFamily: 'Inter, sans-serif'}}>
+                        <FormattedMessage id="Username"/>
                     </FormLabel>
 
-                    <Form.Control type="text" placeholder="Nombre de usuario" onChange={handleUserChange} value={formValues.login} className={validationState ? '' : 'is-invalid'}/>
+                    <Form.Control type="text" placeholder="" onChange={handleUserChange} value={formValues.login} className={validationState ? '' : 'is-invalid'} style={{backgroundColor: "#D9D9D9", borderRadius:"0px", width:"30rem", height: "3.5rem"}}/>
                 </Form.Group>
 
                 <Form.Group>
-                    <FormLabel>
-                        Contraseña
+                    <FormLabel style={{color: "#000000", fontSize:"20px", fontWeight:"bold", fontFamily: 'Inter, sans-serif'}}>
+                        <FormattedMessage id="Password"/>
                     </FormLabel>
 
-                    <Form.Control type="password" placeholder="" onChange={handlePasswordChange} value={formValues.password} className={validationState ? '' : 'is-invalid'}/>
+                    <Form.Control type="password" placeholder="" onChange={handlePasswordChange} value={formValues.password} className={validationState ? '' : 'is-invalid'} style={{backgroundColor: "#D9D9D9", borderRadius:"0px", width:"30rem", height: "3.5rem"}}/>
 
                 </Form.Group>
             </Form>
+            </div>
             </Row>
 
             <Row>
-                <div className="button-group">
-                    <Button variant="primary" onClick={clickSubmit}>
-                        Ingresar
+                <div className="button-group" style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div style={{paddingRight:"1rem", paddingTop:"2rem"}}>
+                    <Button onClick={clickSubmit} style={{backgroundColor: "#003B93", borderRadius:"0px", border: "none", color:"#FFFFFF", fontSize:"20px", fontWeight:"bold", fontFamily: 'Inter, sans-serif', height:"3.5rem", width:"14rem", textAlign:"center"}}>
+                        <FormattedMessage id="Go"/>
                     </Button>
-                    <Button variant="danger" onClick={clickCancelar}>
-                        Cancelar
+                    </div>
+                    <div style={{paddingLeft:"1rem", paddingTop:"2rem"}}>
+                    <Button onClick={clickCancelar}  style={{backgroundColor: "#E75D5D", borderRadius:"0px", border: "none", color:"#000000", fontSize:"20px", fontWeight:"bold", fontFamily: 'Inter, sans-serif', height:"3.5rem", width:"14rem", textAlign:"center"}}>
+                        <FormattedMessage id="Cancel"/>
                     </Button>
+                    </div>
                 </div>
             </Row>
 
             <Row>
-                { !validationState && <Form.Text className="text-mal">Error de autenticación. Revise sus credenciales</Form.Text>}
+                <div style={{display: 'flex', justifyContent: 'center', padding:"1rem"}}>
+                { !validationState && <Form.Text style={{color:"#CD3232", fontSize:"18px", fontWeight:"bold", fontFamily: 'Inter, sans-serif'}}><FormattedMessage id="Error"/></Form.Text>}
+                </div>
             </Row>
 
 
